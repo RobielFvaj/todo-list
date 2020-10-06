@@ -16,15 +16,18 @@ class App extends React.Component{
     this.setState(prevState=> {
       const updatedTodos = prevState.todos.map(todo => {
         if(todo.id === id){
-          todo.completed = !todo.completed
-        }
+          return{...todo,
+            completed: !todo.completed
+          }
+        
+      }
         return todo
       })
       return {
         todos:updatedTodos}
       })
   }
-
+  
   render() {
     const todoItems = this.state.todos.map(item =>
     <TodoItem 
